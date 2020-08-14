@@ -1,0 +1,69 @@
+%YAML 1.0
+# pvio::extra::YamlConfig
+
+# transform before output
+output:
+  q_bo: [ -0.7071068, 0.7071068, 0.0, 0.0 ] # x y z w
+  p_bo: [ 0.026, 0.017, 0.0 ] # x y z [m]
+
+# camera parameters
+camera:
+  noise: [
+    0.5, 0.0,
+    0.0, 0.5
+  ] # [pixel^2]
+  intrinsic: [566.7168, 566.7168, 320, 240] # fx fy cx cy
+  extrinsic:
+    q_bc: [ -0.7071068, 0.7071068, 0, 0 ] # x y z w
+    p_bc: [ 0.026, 0.017, 0 ] # x y z [m]
+
+# imu parameters
+imu:
+  noise:
+    cov_g: [
+      1.21e-8, 0.0, 0.0,
+      0.0, 1.21e-8, 0.0,
+      0.0, 0.0, 1.21e-8
+    ] # [(rad/s/sqrt(hz))^2]
+    cov_a: [
+      1.21e-6, 0.0, 0.0,
+      0.0, 1.21e-6, 0.0,
+      0.0, 0.0, 1.21e-6
+    ] # [(m/s^2/sqrt(hz))^2]
+    cov_bg: [
+      5.0e-12, 0.0, 0.0,
+      0.0, 5.0e-12, 0.0,
+      0.0, 0.0, 5.0e-12
+    ] # [(rad/s^2/sqrt(hz))^2]
+    cov_ba: [
+      5.0e-10, 0.0, 0.0,
+      0.0, 5.0e-10, 0.0,
+      0.0, 0.0, 5.0e-10
+    ] # [(m/s^3/sqrt(hz))^2]
+  extrinsic:
+    q_bi: [ 0.0, 0.0, 0.0, 1.0 ] # x y z w
+    p_bi: [ 0.0, 0.0, 0.0 ] # x y z [m]
+
+plane:
+  noise: 1.0e-4 # [m^2]
+
+sliding_window_size: 8
+
+feature_tracker:
+  min_keypoint_distance: 25.0 # [px]
+  max_keypoint_detection: 150
+  max_init_frames: 60
+  max_frames: 20
+  predict_keypoints: true
+
+initializer:
+  keyframe_gap: 5
+  min_matches: 50
+  min_parallax: 10.0
+  min_triangulation: 20
+  min_landmarks: 30
+  refine_imu: true
+
+solver:
+  iteration_limit: 10
+  time_limit: 1.0e6 # [s]

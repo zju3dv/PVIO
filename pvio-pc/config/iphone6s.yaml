@@ -1,0 +1,39 @@
+camera_intrinsic: [549.0, 549.0, 320.0, 240.0]
+camera_to_body_rotation: [
+  0.0, -1.0, 0.0,
+  -1.0, 0.0, 0.0,
+  0.0, 0.0, -1.0
+  ]
+camera_to_body_translation: [0.0, 0.065, 0.0]
+imu_to_body_rotation: [
+  1.0, 0.0, 0.0,
+  0.0, 1.0, 0.0,
+  0.0, 0.0, 1.0
+  ]
+imu_to_body_translation: [0.0, 0.0, 0.0]
+keypoint_cov: [
+  0.25, 0,
+  0, 0.25
+  ]
+gyroscope_noise_cov: [
+  5.76e-06, 0, 0,
+  0, 5.76e-06, 0,
+  0, 0, 5.76e-06
+  ] # 2.4e-3 * 2.4e-3
+accelerometer_noise_cov: [
+  2.304e-05, 0, 0,
+  0, 2.304e-05, 0,
+  0, 0, 2.304e-05
+  ] # 4.8e-3 * 4.8e-3
+gyroscope_bias_noise_cov: [
+  2.601e-09, 0, 0,
+  0, 2.601e-09, 0,
+  0, 0, 2.601e-09
+  ] # 5.1e-5 * 5.1e-5
+accelerometer_bias_noise_cov: [
+  4.41e-08, 0, 0,
+  0, 4.41e-08, 0,
+  0, 0, 4.41e-08
+  ] # 2.1e-4 * 2.1e-4
+keypoint_distance: 25.0
+init_map_frames: 8
